@@ -1,0 +1,87 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Font Awesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+/* Wrapper */
+#wrapper {
+  display: flex;
+  height: 100vh; /* Full page height */
+}
+
+/* Left Section */
+.left-section {
+  width: 150px;
+  background: #31373d;
+}
+
+.nav {
+  list-style: none;
+  padding: 20px 0;
+}
+
+.menu-item {
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  color: #95a7b7;
+  transition: background 0.3s;
+}
+
+.menu-item:hover {
+  background: #272c30;
+  color: #fff;
+}
+
+/* Logo */
+#logo img {
+  display: block;
+  width: 100%;
+}
+
+/* Right Section */
+.right-section {
+  flex-grow: 1;
+  background: #fff;
+}
+
+/* Top Bar */
+#top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+#name {
+  color: #50b7e0;
+  margin: 0;
+}
+
+/* Sign Out Button */
+.btn {
+  background: #fcfcfc;
+  color: #50b7e0;
+  border: 1px solid #e3e3e3;
+  border-radius: 3px;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background: #f2f2f2;
+  color: #444;
+}
+.active {
+  background: #272c30;
+  color: #fff;
+}
+.pointer {
+  cursor:pointer;
+}

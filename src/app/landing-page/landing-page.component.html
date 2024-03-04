@@ -1,0 +1,138 @@
+<div id="wrapper">
+  <div class="left-section">
+      <ul class="nav">
+          <!-- <li id="logo">
+              <img src="https://198.154.220.249/~healncur/wphnc/wp-content/uploads/2014/02/footerlogo.jpg">
+          </li> -->
+          <li><a href="#" routerLinkActive="active" class="menu-item"><span class="fontawesome-home ftm"></span>Home</a>
+          </li>
+          <li><a href="#" routerLinkActive="active" class="menu-item"><span class="fontawesome-user ftm"></span>User Info</a>
+          </li>
+          <li><a href="#" routerLinkActive="active" class="menu-item"><span class="fontawesome-cog ftm"></span>My Account</a>
+          </li>
+          <li><a href="#" routerLinkActive="active" class="menu-item"><span class="fontawesome-envelope-alt ftm"></span>Messages</a>
+          </li>
+      </ul>
+  </div>
+  <div class="right-section">
+      <div id="top">
+          <div id="top-left">
+               <h2 id="name">Welcome Praveen</h2>
+          </div>
+          <!-- <a class="btn" (click)="logOut()"><span class="fontawesome-signout ftm"></span>Sign Out</a> -->
+          <div id="top-right">
+          </div>
+          <br>
+          <span class="pointer" (click)="logOut()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign Out</span>
+      </div>
+      <hr>
+      <div class="row m-4 float-right">
+        <div class="col-sm-12" style="text-align: right;">
+          <button class="btn btn-primary pointer" (click)="openModal(modaltwo)">Add</button>
+        </div>
+       </div>
+       <!-- <div class="col-xl-12">
+        <div class="row">
+            <div class="col-sm-3" style="text-align: left; margin-top: 5px; margin-left: 10px;">
+                <input type="text" class="form-control search field" [ngStyle]="{ 'max-width.px': 250 }" placeholder="Search here">
+            </div>
+            <div class="col-sm-9" style="text-align: right;">
+                <button class="btn mt-2 bg-silver" style="margin-right: 20px; background-color: rgb(84, 116, 181); color: white;" (click)="openModal(modaltwo)">Add</button>
+            </div>
+        </div>
+    </div> -->
+      <div class="col-xl-12">
+        <div class="col-xl-12 table-responsive" style="padding-left:0px">
+            <br>
+            <table class="table table-fixed table-bordered table1 table-hover">
+                <thead>
+                    <tr>
+                        <th style=" padding-bottom: 10px;padding-top: 10px;text-align:center;background-color: #E8E8E8; " *ngFor="let column of dataListHead">
+                            {{column.name}}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of dataList">
+                      <td>{{data?.userName}}</td>
+                      <td>{{data?.designation}}</td>
+                      <td>{{data?.emailId}}</td>
+                      <td style="text-align: center;">  <button type="button" class="btn btn-info btn-sm" (click)="edituserData(data,modal)"><i class="fas fa-edit"></i></button>&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+  </div>
+</div>
+<ng-template #modal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+
+  </div>
+  <div class="modal-body">
+      <div class="row m-4">
+        <div class="col-md-3">
+          <label for="">User Name<span style="color : red">*</span></label>
+      </div>
+      <div class="col-md-3">
+        <input type="text" [(ngModel)]="editUserObj.userName">
+      </div>
+  </div>
+  <div class="row m-4">
+    <div class="col-md-3">
+      <label for="">Designation<span style="color : red">*</span></label>
+  </div>
+  <div class="col-md-3">
+    <input type="text" [(ngModel)]="editUserObj.designation">
+  </div>
+</div>
+<div class="row m-4">
+  <div class="col-md-3">
+    <label for="">Email-Id<span style="color : red">*</span></label>
+</div>
+<div class="col-md-3">
+  <input type="text" [(ngModel)]="editUserObj.emailId">
+</div>
+</div>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="save(editUserObj)">Save</button>
+      <button type="button" class="btn btn-danger " (click)="c();">Close</button>
+  </div>
+</ng-template>
+<ng-template #modaltwo let-c="close" let-d="dismiss">
+  <div class="modal-header">
+
+  </div>
+  <div class="modal-body">
+      <div class="row m-4">
+        <div class="col-md-3">
+          <label for="">User Name<span style="color : red">*</span></label>
+      </div>
+      <div class="col-md-3">
+        <input type="text" [(ngModel)]="addUserObj.userName">
+      </div>
+  </div>
+  <div class="row m-4">
+    <div class="col-md-3">
+      <label for="">Designation<span style="color : red">*</span></label>
+  </div>
+  <div class="col-md-3">
+    <input type="text" [(ngModel)]="addUserObj.designation">
+  </div>
+</div>
+<div class="row m-4">
+  <div class="col-md-3">
+    <label for="">Email-Id<span style="color : red">*</span></label>
+</div>
+<div class="col-md-3">
+  <input type="text" [(ngModel)]="addUserObj.emailId">
+</div>
+</div>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="add(addUserObj)">Save</button>
+      <button type="button" class="btn btn-danger ml-2" (click)="c();">Close</button>
+  </div>
+</ng-template>
+
